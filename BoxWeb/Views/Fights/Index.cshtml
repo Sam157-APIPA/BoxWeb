@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ConsoleApp1.Fight>
+
+@{
+    ViewData["Title"] = "Fights";
+}
+
+<h1>Fights</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tournament)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfFight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BattleResult)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TournamentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfFight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BattleResult)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FightID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FightID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FightID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -29,7 +29,7 @@ namespace BoxWeb.Data
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdatecoachAsync(Coach coach)
+        public async Task UpdateCoachAsync(Coach coach)
         {
             _context.Coaches.Update(coach);
             await _context.SaveChangesAsync();
@@ -230,7 +230,7 @@ namespace BoxWeb.Data
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteSecurityZoneAsync(int id)
+        public async Task DeleteTournamentAsync(int id)
         {
             var tournament = await GetTournamentByIdAsync(id);
             if (tournament != null)

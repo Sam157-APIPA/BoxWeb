@@ -10,6 +10,7 @@ namespace ConsoleApp1
 {
     public class Club
     {
+        [Display(Name = "Id")]
         public int ClubID { get; set; } //PK
         public string ClubName { get; set; }
         public string? ImagePath { get; set; }
