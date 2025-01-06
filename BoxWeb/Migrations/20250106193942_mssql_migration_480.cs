@@ -5,7 +5,7 @@
 namespace BoxWeb.Migrations
 {
     /// <inheritdoc />
-    public partial class mssql_migration_885 : Migration
+    public partial class mssql_migration_480 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

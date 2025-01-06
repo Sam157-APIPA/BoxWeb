@@ -60,8 +60,8 @@ namespace BoxWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _storage.AddFightAsync(fight);
-                return RedirectToAction(nameof(Index));
+                    await _storage.AddFightAsync(fight);
+                    return RedirectToAction(nameof(Index));    
             }
             var tournament = await _storage.GetTournamentAsync();
             ViewData["TournamentID"] = new SelectList(tournament, "TournamentID", "TournamentID");

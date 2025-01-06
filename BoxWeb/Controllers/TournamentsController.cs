@@ -60,8 +60,8 @@ namespace BoxWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _storage.AddTournamentAsync(tournament);
-                return RedirectToAction(nameof(Index));
+                    await _storage.AddTournamentAsync(tournament);
+                    return RedirectToAction(nameof(Index));
             }
 
             var refeeres = await _storage.GetRefeereAsync();

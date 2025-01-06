@@ -14,6 +14,9 @@ namespace ConsoleApp1
         public List<Tournament> Tournament { get; set; } = [];
         public string Name { get; set; }
         public string Surname { get; set; }
+
+        [Required(ErrorMessage = "Input phone number starting with 8")]
+        [Range(80000000000, 89999999999, ErrorMessage = "Invalid phone number")]
         public long PhoneNumber { get; set; }
         public string Adress { get; set; }
         public string BirthsdayDate { get; set; }

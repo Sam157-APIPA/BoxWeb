@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BoxWeb.Migrations
 {
     [DbContext(typeof(BoxContext))]
-    [Migration("20250102202014_mssql_migration_885")]
-    partial class mssql_migration_885
+    [Migration("20250106193942_mssql_migration_480")]
+    partial class mssql_migration_480
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

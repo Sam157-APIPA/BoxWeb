@@ -17,7 +17,11 @@ namespace ConsoleApp1
         public string Name {  get; set; }
         public string Adress { get; set; }
         public int Year { get; set; }
+
+        [Required(ErrorMessage = "Enter the date and month together")]
         public int StartDate { get; set; }
+
+        [Required(ErrorMessage = "Enter the date and month together")]
         public int EndDate { get; set; }
     }
 }

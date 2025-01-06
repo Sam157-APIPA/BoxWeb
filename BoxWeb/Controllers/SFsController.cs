@@ -27,7 +27,22 @@ namespace BoxWeb.Controllers
         }
 
         // GET: SFs/Details/5
-        
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var sf = await _storage.GetSFByIdAsync(id.Value);
+            if (sf == null)
+            {
+                return NotFound();
+            }
+
+            return View(sf);
+        }
 
         // GET: SFs/Create
         public async Task<IActionResult> CreateAsync()
