@@ -89,6 +89,25 @@ namespace BoxWeb.Data
             return await _context.Clubs.AnyAsync(cl => cl.ClubID == id);
         }
 
+        public string SaveFile(IFormFile file)
+        {
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder); // Создаем папку, если она не существует
+            }
+            Console.WriteLine("apipa");
+            var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                file.CopyTo(fileStream);
+            }
+
+            return uniqueFileName;
+        }
+
         //Sportsman
 
         public async Task<List<Sportsman>> GetSportsmanAsync()

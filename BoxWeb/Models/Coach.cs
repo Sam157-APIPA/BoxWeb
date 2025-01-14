@@ -13,7 +13,7 @@ namespace ConsoleApp1
         public int CoachID { get; set; } // PK
         public string Name { get; set; }
         public string Surname { get; set; }
-
+        //вызывается во view
         [Required(ErrorMessage = "Input phone number starting with 8")]
         [Range(80000000000, 89999999999, ErrorMessage = "Invalid phone number")]
         public long PhoneNumber { get; set; }

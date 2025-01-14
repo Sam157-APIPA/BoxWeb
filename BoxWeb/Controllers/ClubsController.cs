@@ -58,10 +58,23 @@ namespace BoxWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ClubID,ClubName,ImagePath")] Club club)
+        public async Task<IActionResult> Create([Bind("ClubID,ClubName,ImagePath")] Club club, IFormFile? picture)
         {
             if (ModelState.IsValid)
             {
+                //if (picture == null)
+                //{
+                //    Console.WriteLine("No file\n");
+                //}
+                //else
+                //{
+                //     Console.WriteLine($"file get{picture.FileName}\n");
+                //}
+                if (picture != null )
+                {
+                    var filekName = _storage.SaveFile(picture);
+                    club.ImagePath = filekName;
+                }
                 await _storage.AddClubAsync(club);
                 return RedirectToAction(nameof(Index));
             }
@@ -101,7 +114,7 @@ namespace BoxWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ClubID,ClubName, ImagePath")] Club club)
+        public async Task<IActionResult> Edit(int id, [Bind("ClubID,ClubName, ImagePath")] Club club, IFormFile? picture)
         {
             if (id != club.ClubID)
             {
@@ -110,6 +123,11 @@ namespace BoxWeb.Controllers
 
             if (ModelState.IsValid)
             {
+                if (picture != null)
+                {
+                    var filekName = _storage.SaveFile(picture);
+                    club.ImagePath = filekName;
+                }
                 try
                 {
                     await _storage.UpdateClubAsync(club);
